@@ -1,10 +1,27 @@
 let EXTENSIONSBOTTOMBAR = document.createElement("div");
-EXTENSIONSBOTTOMBAR.style = "width:170px;height:20px;position:fixed;right:4px;bottom:0px;background-color:rgba(244, 244, 248, 0.61);border-radius:4px;font-family:arial;display:flex;align-items:center;justify-content:center;"
+EXTENSIONSBOTTOMBAR.style = "user-select:none;width:160px;height:20px;position:fixed;right:0;bottom:0px;background-color:white;border-radius:5px 0px 0px 0px;font-family:arial;display:flex;align-items:center;justify-content:left;border-style:solid;border-width:1px 0px 0px 1px;border-color:gray;"
 document.body.appendChild(EXTENSIONSBOTTOMBAR);
 setInterval(function () {
-    let EXTENSIONCLOCHHOUR = new Date().getHours();
-    if (EXTENSIONCLOCHHOUR == 0) {
-        EXTENSIONCLOCHHOUR = 12;
+    let EXTENSIONCLOCKHOUR = new Date().getHours();
+    if (EXTENSIONCLOCKHOUR == 0) {
+        EXTENSIONCLOCKHOUR = 12;
+    } else if (EXTENSIONCLOCKHOUR > 12) {
+        EXTENSIONCLOCKHOUR = EXTENSIONCLOCKHOUR - 12
     }
-    EXTENSIONSBOTTOMBAR.innerHTML = "<p>" + "<span>" + EXTENSIONCLOCHHOUR.toString() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "</span>" + "<span style=\"color:lightgray\"> | </span>" + "<span>" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + "/" + new Date().getFullYear() + "</span>" + "</p>";
+    if (EXTENSIONCLOCKHOUR.length == 1) {
+        EXTENSIONCLOCKHOUR = "0" + EXTENSIONCLOCKHOUR
+    }
+    EXTENSIONCLOCKHOUR = EXTENSIONCLOCKHOUR.toString()
+
+    let EXTENSIONCLOCKMINUTE = new Date().getMinutes()
+    if (EXTENSIONCLOCKMINUTE.length == 1) {
+        EXTENSIONCLOCKMINUTE = "0" + EXTENSIONCLOCKMINUTE
+    }
+
+    let EXTENSIONCLOCKSECOND = new Date().getSeconds()
+    console.log(EXTENSIONCLOCKSECOND.toString().length)
+    if (EXTENSIONCLOCKSECOND.toString().length == 1) {
+        EXTENSIONCLOCKSECOND = "0" + EXTENSIONCLOCKSECOND
+    }
+    EXTENSIONSBOTTOMBAR.innerHTML = "<p style=\"margin-left:3px;\">" + "<span>" + EXTENSIONCLOCKHOUR + ":" + EXTENSIONCLOCKMINUTE + ":" + EXTENSIONCLOCKSECOND + "</span>" + "<span style=\"color:lightgray\"> | </span>" + "<span>" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + "/" + new Date().getFullYear() + "</span>" + "</p>";
 }, 500)
