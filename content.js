@@ -8,13 +8,13 @@ setInterval(function () {
     } else if (EXTENSIONCLOCKHOUR > 12) {
         EXTENSIONCLOCKHOUR = EXTENSIONCLOCKHOUR - 12
     }
-    if (EXTENSIONCLOCKHOUR.length == 1) {
+    if (EXTENSIONCLOCKHOUR.toString().length == 1) {
         EXTENSIONCLOCKHOUR = "0" + EXTENSIONCLOCKHOUR
     }
     EXTENSIONCLOCKHOUR = EXTENSIONCLOCKHOUR.toString()
 
     let EXTENSIONCLOCKMINUTE = new Date().getMinutes()
-    if (EXTENSIONCLOCKMINUTE.length == 1) {
+    if (EXTENSIONCLOCKMINUTE.toString().length == 1) {
         EXTENSIONCLOCKMINUTE = "0" + EXTENSIONCLOCKMINUTE
     }
 
