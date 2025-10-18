@@ -19,7 +19,6 @@ setInterval(function () {
     }
 
     let EXTENSIONCLOCKSECOND = new Date().getSeconds()
-    console.log(EXTENSIONCLOCKSECOND.toString().length)
     if (EXTENSIONCLOCKSECOND.toString().length == 1) {
         EXTENSIONCLOCKSECOND = "0" + EXTENSIONCLOCKSECOND
     }
