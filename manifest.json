@@ -1,8 +1,11 @@
 {
-    "name": "Bottom-bar",
+    "name": "Clock and Calendar Bottom-bar",
     "description": "This is a extensions that can add a bottom-bar on the browser",
     "version": "1.0",
     "manifest_version": 3,
+    "action": {
+        "default_icon": "icon.png"
+    },
     "content_scripts": [
         {
             "matches": [
